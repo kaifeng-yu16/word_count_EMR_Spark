@@ -18,8 +18,8 @@ if __name__ == "__main__":
                   .map(lambda x: (x, 1)) \
                   .reduceByKey(add)
     output = counts.collect()
-    #for (word, count) in output:
-     #   print("%s: %i" % (word, count))
+    for (word, count) in output:
+        print("%s: %i" % (word, count))
 
-    output.saveAsTextFile(sys.args[2]);
+    counts.saveAsTextFile(sys.argv[2]);
     spark.stop()
